@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --ecLogin-primary-gradient: linear-gradient(
+    135deg,
+    #522c72 0%,   /* Deep purple */
+    #962964 25%,  /* Pinkish purple */
+    #ce2453 50%,  /* Rose red */
+    #dd5c54 75%,  /* Warm coral */
+    #e79e57 100%  /* Soft orange */
+  );
+  --ecLogin-secondary-gradient: linear-gradient(
+    135deg,
+    #e79e57 0%,   /* Soft orange */
+    #dd5c54 25%,  /* Warm coral */
+    #ce2453 50%,  /* Rose red */
+    #962964 75%,  /* Pinkish purple */
+    #522c72 100%  /* Deep purple */
+  );
+  --ecLogin-glass-bg: rgba(255, 255, 255, 0.15);
+  --ecLogin-glass-border: rgba(255, 255, 255, 0.25);
+  --ecLogin-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --ecLogin-text-light: #ffffff;
+  --ecLogin-text-dark: #333333;
+  --ecLogin-transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ecLogin-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+  background: var(--ecLogin-primary-gradient);
+}
+
+.ecLogin-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
+
+/* Left Side - Animation */
+.ecLogin-animation-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ecLogin-icon-animation {
+  width: 100%;
+  height: 60%;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ecLogin-icon-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.ecLogin-icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: var(--ecLogin-secondary-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.ecLogin-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.ecLogin-user-icon {
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-name: ecLogin-float-user;
+}
+
+.ecLogin-email-icon {
+  top: 40%;
+  left: 25%;
+  animation-name: ecLogin-float-email;
+  animation-delay: 0.5s;
+}
+
+.ecLogin-password-icon {
+  top: 40%;
+  left: 65%;
+  animation-name: ecLogin-float-password;
+  animation-delay: 1s;
+}
+
+.ecLogin-login-icon {
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-name: ecLogin-float-login;
+  animation-delay: 1.5s;
+}
+
+@keyframes ecLogin-float-user {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -15px); }
+}
+
+@keyframes ecLogin-float-email {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-10px, -10px); }
+}
+
+@keyframes ecLogin-float-password {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(10px, -10px); }
+}
+
+@keyframes ecLogin-float-login {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 15px); }
+}
+
+.ecLogin-create-account {
+  text-align: center;
+  color: var(--ecLogin-text-light);
+  padding: 30px;
+  background: var(--ecLogin-glass-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid var(--ecLogin-glass-border);
+  width: 100%;
+  max-width: 400px;
+}
+
+.ecLogin-create-account h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.ecLogin-create-account p {
+  font-size: 16px;
+  margin-bottom: 25px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.ecLogin-create-account-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--ecLogin-secondary-gradient);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: var(--ecLogin-transition);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ecLogin-create-account-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Right Side - Form */
+.ecLogin-form-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ecLogin-formContainer {
+  width: 100%;
+  max-width: 450px;
+}
+
+.ecLogin-formWrapper {
+  background: var(--ecLogin-glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--ecLogin-glass-border);
+  border-radius: 20px;
+  padding: 40px 35px;
+  width: 100%;
+  box-shadow: var(--ecLogin-glass-shadow);
+  animation: ecLogin-formEntrance 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.ecLogin-formWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+
+  animation: ecLogin-borderAnimation 3s ease infinite;
+}
+
+@keyframes ecLogin-borderAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ecLogin-formEntrance {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.ecLogin-logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.ecLogin-logo {
+  height: 80px;
+  object-fit: contain;
+  /* filter: brightness(0) invert(1); */
+  transition: var(--ecLogin-transition);
+}
+
+.ecLogin-logo:hover {
+  transform: scale(1.05);
+}
+
+.ecLogin-title {
+  color: var(--ecLogin-text-light);
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ecLogin-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.ecLogin-error {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  color: #ff6b6b;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+  backdrop-filter: blur(5px);
+  animation: ecLogin-shake 0.5s ease-in-out;
+}
+
+@keyframes ecLogin-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.ecLogin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ecLogin-inputGroup {
+  position: relative;
+}
+
+.ecLogin-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--ecLogin-glass-border);
+  border-radius: 12px;
+  color: var(--ecLogin-text-light);
+  font-size: 16px;
+  transition: var(--ecLogin-transition);
+  backdrop-filter: blur(5px);
+}
+
+.ecLogin-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ecLogin-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.ecLogin-input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ecLogin-submitButton {
+  padding: 16px 20px;
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--ecLogin-secondary-gradient);
+  border: none;
+  border-radius: 12px;
+  color: var(--ecLogin-text-light);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--ecLogin-transition);
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  background-size: 200% 200%;
+  animation: ecLogin-gradientAnimation 5s ease infinite;
+}
+
+.ecLogin-submitButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.ecLogin-submitButton:active {
+  transform: translateY(0);
+}
+
+.ecLogin-submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ecLogin-submitButtonLoading {
+  pointer-events: none;
+}
+
+.ecLogin-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: ecLogin-spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes ecLogin-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.ecLogin-forgotPassword {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+  transition: var(--ecLogin-transition);
+  text-decoration: underline;
+  width: 100%;
+}
+
+.ecLogin-forgotPassword:hover {
+  color: var(--ecLogin-text-light);
+  transform: translateY(-1px);
+}
+
+.ecLogin-forgotPassword:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .ecLogin-content {
+    flex-direction: column;
+    height: auto;
+    margin: 10px;
+  }
+  
+  .ecLogin-animation-side {
+    padding: 30px 20px;
+    order: 2;
+  }
+  
+  .ecLogin-form-side {
+    padding: 30px 20px;
+    order: 1;
+  }
+  
+  .ecLogin-icon-animation {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .ecLogin-icon-container {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .ecLogin-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .ecLogin-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .ecLogin-create-account {
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  .ecLogin-create-account h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ecLogin-formWrapper {
+    padding: 25px 20px;
+  }
+  
+  .ecLogin-title {
+    font-size: 24px;
+  }
+  
+  .ecLogin-subtitle {
+    font-size: 14px;
+  }
+  
+  .ecLogin-logo {
+    height: 60px;
+  }
+  
+  .ecLogin-input {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+  
+  .ecLogin-submitButton {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+  
+  .ecLogin-icon-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .ecLogin-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .ecLogin-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.ecLogin-signup-icon {
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-name: ecLogin-float-signup;
+  animation-delay: 1.5s;
+}
+
+@keyframes ecLogin-float-signup {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 15px); }
+}
+
+.ecLogin-message {
+  background: rgba(0, 200, 0, 0.1);
+  border: 1px solid rgba(0, 200, 0, 0.2);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+  backdrop-filter: blur(5px);
+}

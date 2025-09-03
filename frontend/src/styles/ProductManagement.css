@@ -1,0 +1,300 @@
+/* ProductManagement.css */
+:root {
+  --primary-gradient: linear-gradient(
+    90deg,
+    #522c72 0%,   /* Deep purple */
+    #962964 25%,  /* Pinkish purple */
+    #ce2453 50%,  /* Rose red */
+    #dd5c54 75%,  /* Warm coral */
+    #e79e57 100%  /* Soft orange */
+  );
+}
+.product-icon{
+  display: inline-block;
+  color: #962964  ;
+}
+
+.product-management {
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.product-management h3 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  /* Gradient text */
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Form Container */
+.product-form-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+/* Form Sections */
+.form-section {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+
+  /* Gradient text */
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Form Rows */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  /* Gradient text for label/icons */
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.form-control {
+  width: 90%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f9fafc;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4e54c8;
+  box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.2);
+}
+
+/* Checkbox Groups */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #4e54c8;
+}
+
+.checkbox-item label {
+  margin: 0;
+  font-weight: normal;
+
+  /* Gradient text for checkbox labels */
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Image Preview */
+.image-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.image-preview {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Extra Details */
+.extra-details-container {
+  margin-top: 15px;
+}
+
+.extra-detail-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.extra-detail-row input {
+  flex: 1;
+}
+
+.remove-detail-btn,
+.add-detail-btn,
+.submit-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  /* Gradient background */
+  background: var(--primary-gradient);
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.remove-detail{
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  /* Gradient background */
+  background: var(--primary-gradient);
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.remove-detail-btn:hover,
+.add-detail-btn:hover,
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Submit Button */
+.submit-btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+/* Price Display */
+.price-display {
+  margin-top: 15px;
+  padding: 15px;
+  background: linear-gradient(to right, #f3f4ff, #e8eaff);
+  border-radius: 8px;
+  border-left: 4px solid #4e54c8;
+}
+
+.price-display p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  /* Gradient text */
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-group {
+    min-width: 100%;
+  }
+  
+  .checkbox-group {
+    gap: 10px;
+  }
+  
+  .extra-detail-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .remove-detail-btn,
+  .add-detail-btn,
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-form-container {
+    padding: 15px;
+  }
+  
+  .form-control {
+    padding: 10px;
+  }
+  
+  .image-preview {
+    width: 80px;
+    height: 80px;
+  }
+}
