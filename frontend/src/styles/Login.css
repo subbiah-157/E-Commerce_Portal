@@ -232,7 +232,6 @@
   left: 0;
   right: 0;
   height: 4px;
-
   animation: ecLogin-borderAnimation 3s ease infinite;
 }
 
@@ -262,7 +261,6 @@
 .ecLogin-logo {
   height: 80px;
   object-fit: contain;
-  /* filter: brightness(0) invert(1); */
   transition: var(--ecLogin-transition);
 }
 
@@ -510,6 +508,7 @@
     width: 20px;
     height: 20px;
   }
+  
 }
 
 .ecLogin-signup-icon {
@@ -535,4 +534,165 @@
   text-align: center;
   font-size: 14px;
   backdrop-filter: blur(5px);
+}
+
+/* Login Popup Styles - UPDATED */
+.loginPopupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* Highest z-index to ensure it's on top */
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.loginPopupFull {
+  background: var(--ecLogin-primary-gradient);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  animation: popIn 0.5s ease-out;
+  border: 1px solid var(--ecLogin-glass-border);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.closePopupBtn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: white;
+  z-index: 100;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: var(--ecLogin-transition);
+}
+
+.closePopupBtn:hover {
+  color: #ff6b6b;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+/* Adjust the login container for popup */
+.loginPopupFull .ecLogin-container {
+  padding: 0;
+  height: auto;
+  background: transparent;
+  min-height: auto;
+}
+
+.loginPopupFull .ecLogin-content {
+  flex-direction: row;
+  height: auto;
+  min-height: 550px;
+  max-height: none;
+  margin: 0;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.loginPopupFull .ecLogin-animation-side {
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(15px);
+}
+
+.loginPopupFull .ecLogin-form-side {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+}
+
+.loginPopupFull .ecLogin-formWrapper {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive adjustments for the popup */
+@media (max-width: 900px) {
+  .loginPopupFull .ecLogin-content {
+    flex-direction: column;
+  }
+  
+  .loginPopupFull .ecLogin-animation-side,
+  .loginPopupFull .ecLogin-form-side {
+    width: 100%;
+  }
+  
+  .loginPopupFull .ecLogin-animation-side {
+    display: flex; /* Show animation on mobile in popup */
+    padding: 30px 20px;
+  }
+  
+  .loginPopupFull .ecLogin-icon-animation {
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .loginPopupFull .ecLogin-create-account {
+    padding: 20px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .loginPopupOverlay {
+    padding: 10px;
+  }
+  
+  .loginPopupFull {
+    border-radius: 15px;
+  }
+  
+  .closePopupBtn {
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+  
+}
+
+/* Ensure home page content is behind the popup */
+.homePageContainer {
+  position: relative;
+  z-index: 1;
+}
+
+/* When popup is active, prevent scrolling on the background */
+body.loginPopupActive {
+  overflow: hidden;
 }

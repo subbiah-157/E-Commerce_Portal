@@ -18,6 +18,7 @@ import {
 
 const Header = ({ setSearch, setSelectedCategory, setSelectedSubCategory, setSelectedSubSubCategory }) => {
   const { user, logout, loading } = useContext(AuthContext);
+  const [showLogin, setShowLogin] = useState(false);
   const navigate = useNavigate();
   const [companyLogo, setCompanyLogo] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -137,105 +138,102 @@ const Header = ({ setSearch, setSelectedCategory, setSelectedSubCategory, setSel
 
   return (
     <>
-      <header className="ecHeader-wrapper">
-        <div className="ecHeader-content">
-          {/* Logo Section */}
-          <div className="ecHeader-logoContainer">
-            <Link to="/" className="ecHeader-logoLink">
-              {companyLogo ? (
-                <img
-                  src={`http://localhost:5000${companyLogo}`}
-                  alt="Company Logo"
-                  className="ecHeader-logoImg"
-                  onError={(e) => {
-                    e.target.style.display = "none";
-                    e.target.nextSibling.style.display = "block";
-                  }}
-                />
-              ) : (
-                <h1 className="ecHeader-logoText">My E-commerce Portal</h1>
-              )}
-            </Link>
-          </div>
+      <header className="ecHeader-wrapper"> 
+  <div className="ecHeader-content">
+    {/* Logo Section */}
+    <div className="ecHeader-logoContainer">
+      <Link to="/" className="ecHeader-logoLink">
+        {companyLogo ? (
+          <img
+            src={`http://localhost:5000${companyLogo}`}
+            alt="Company Logo"
+            className="ecHeader-logoImg"
+            onError={(e) => {
+              e.target.style.display = "none";
+              e.target.nextSibling.style.display = "block";
+            }}
+          />
+        ) : (
+          <h1 className="ecHeader-logoText">My E-commerce Portal</h1>
+        )}
+      </Link>
+    </div>
 
-          {/* Search Bar */}
-          <div className="ecHeader-searchContainer">
-            <form onSubmit={handleSearch} className="ecHeader-searchForm">
-              <div className="ecHeader-searchInputWrapper">
-                <input
-                  type="text"
-                  placeholder="Try Shirt, Mobile, Category Name or Search by Product Code..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="ecHeader-searchInput"
-                />
-                <button type="submit" className="ecHeader-searchButton">
-                  <FaSearch className="ecHeader-searchIcon" />
-                </button>
-              </div>
-            </form>
-          </div>
-
-          {/* Navigation Items */}
-          <div className="ecHeader-navContainer">
-            <Link to="/" className="ecHeader-navItem">
-              <FaHome className="ecHeader-navIcon" />
-              <span className="ecHeader-navLabel">Home</span>
-            </Link>
-
-            {user ? (
-              <>
-                <Link to="/cart" className="ecHeader-navItem">
-                  <FaShoppingCart className="ecHeader-navIcon" />
-                  <span className="ecHeader-navLabel">Cart</span>
-                </Link>
-
-                <Link to="/myorders" className="ecHeader-navItem">
-                  <FaBox className="ecHeader-navIcon" />
-                  <span className="ecHeader-navLabel">My Orders</span>
-                </Link>
-
-                {/* User Profile */}
-                <div
-                  className="ecHeader-navItem ecHeader-userProfile"
-                  onClick={() => navigate("/profile")}
-                  title={user?.username}
-                >
-                  <FaUser className="ecHeader-navIcon" id="profile"/>
-                  <span className="ecHeader-navLabel">
-                    {user.username ||
-                      user.name ||
-                      (user.email ? user.email.split("@")[0] : "User")}
-                  </span>
-                </div>
-
-                {user.isAdmin && (
-                  <button
-                    onClick={() => navigate("/admin")}
-                    className="ecHeader-navItem ecHeader-adminBtn"
-                  >
-                    <FaCog className="ecHeader-navIcon" />
-                    <span className="ecHeader-navLabel">Admin Portal</span>
-                  </button>
-                )}
-
-                <button
-                  onClick={handleLogout}
-                  className="ecHeader-navItem ecHeader-logoutBtn" style={{background:"none"}}
-                >
-                  <FaSignOutAlt className="ecHeader-navIcon" />
-                  <span className="ecHeader-navLabel">Logout</span>
-                </button>
-              </>
-            ) : (
-              <Link to="/login" className="ecHeader-navItem ecHeader-loginBtn">
-                <FaUser className="ecHeader-navIcon" />
-                <span className="ecHeader-navLabel">Login</span>
-              </Link>
-            )}
-          </div>
+    {/* Search Bar */}
+    <div className="ecHeader-searchContainer">
+      <form onSubmit={handleSearch} className="ecHeader-searchForm">
+        <div className="ecHeader-searchInputWrapper">
+          <input
+            type="text"
+            placeholder="Try Shirt, Mobile, Category Name or Search by Product Code..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="ecHeader-searchInput"
+          />
+          <button type="submit" className="ecHeader-searchButton">
+            <FaSearch className="ecHeader-searchIcon" />
+          </button>
         </div>
-      </header>
+      </form>
+    </div>
+
+    {/* Navigation Items */}
+    <div className="ecHeader-navContainer">
+      <Link to="/" className="ecHeader-navItem">
+        <FaHome className="ecHeader-navIcon" />
+        <span className="ecHeader-navLabel">Home</span>
+      </Link>
+
+      {user && (
+        <>
+          <Link to="/cart" className="ecHeader-navItem">
+            <FaShoppingCart className="ecHeader-navIcon" />
+            <span className="ecHeader-navLabel">Cart</span>
+          </Link>
+
+          <Link to="/myorders" className="ecHeader-navItem">
+            <FaBox className="ecHeader-navIcon" />
+            <span className="ecHeader-navLabel">My Orders</span>
+          </Link>
+
+          {/* User Profile */}
+          <div
+            className="ecHeader-navItem ecHeader-userProfile"
+            onClick={() => navigate("/profile")}
+            title={user?.username}
+          >
+            <FaUser className="ecHeader-navIcon" id="profile" />
+            <span className="ecHeader-navLabel">
+              {user.username ||
+                user.name ||
+                (user.email ? user.email.split("@")[0] : "User")}
+            </span>
+          </div>
+
+          {user.isAdmin && (
+            <button
+              onClick={() => navigate("/admin")}
+              className="ecHeader-navItem ecHeader-adminBtn"
+            >
+              <FaCog className="ecHeader-navIcon" />
+              <span className="ecHeader-navLabel">Admin Portal</span>
+            </button>
+          )}
+
+          <button
+            onClick={handleLogout}
+            className="ecHeader-navItem ecHeader-logoutBtn"
+            style={{ background: "none" }}
+          >
+            <FaSignOutAlt className="ecHeader-navIcon" />
+            <span className="ecHeader-navLabel">Logout</span>
+          </button>
+        </>
+      )}
+    </div>
+  </div>
+</header>
+
 
       {/* Category Navigation Bar - Moved to Header */}
       <div className="categoryNavBar" style={{position:"fixed", top:"10%", left:"0%", right:"0%"}}>
