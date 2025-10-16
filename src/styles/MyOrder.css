@@ -1,0 +1,755 @@
+/* MyOrder.css - Additional Styles for Email Modal */
+.my-orders-container {
+  max-width: 900px;
+  margin: 20px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0 15px;
+  color: #333;
+  position: relative;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 20px auto 35px auto;
+  padding: 15px 25px;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    #522c72 0%,
+    #962964 25%,
+    #ce2453 50%,
+    #dd5c54 75%,
+    #e79e57 100%
+  );
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.no-orders {
+  text-align: center;
+  padding: 40px 20px;
+  color: #7f8c8d;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.no-orders p {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+/* Order Card */
+.order-card {
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding: 20px;
+}
+
+.order-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.order-id-status {
+  flex: 1;
+}
+
+.order-id-status h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #2c3e50;
+  word-break: break-all;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.completed {
+  background-color: #e7f6e9;
+  color: #2e7d32;
+}
+
+.status-badge.processing {
+  background-color: #fff3e0;
+  color: #ef6c00;
+}
+
+.order-info {
+  text-align: right;
+}
+
+.order-info p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* Customer Info */
+.customer-info {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.customer-info h4 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.info-icon {
+  margin-right: 10px;
+  color: #7f8c8d;
+}
+
+/* Products Section */
+.products-section {
+  margin-bottom: 20px;
+}
+
+.products-section h4 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.product-item {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fafafa;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.product-name {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.product-price {
+  font-weight: 600;
+  color: #e74c3c;
+}
+
+.product-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.btn-view-product {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-view-product:hover {
+  background-color: #2980b9;
+}
+
+/* Order Progress */
+.order-progress {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.order-progress h4 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.progress-tracker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px 0;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  flex: 1;
+}
+
+.step-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ecf0f1;
+  color: #7f8c8d;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.progress-step.completed .step-icon {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.step-label {
+  font-size: 12px;
+  text-align: center;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.progress-step.completed .step-label {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.progress-connector {
+  height: 2px;
+  flex-grow: 1;
+  background-color: #ecf0f1;
+  position: relative;
+  top: -12px;
+  transition: background-color 0.3s ease;
+}
+
+.progress-connector.completed {
+  background-color: #2ecc71;
+}
+
+/* Action Buttons */
+.order-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-download-invoice, .btn-delete-order, .btn-email-support {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-download-invoice {
+   background: linear-gradient(
+    90deg,
+    #522c72 0%,
+    #962964 25%,
+    #ce2453 50%,
+    #dd5c54 75%,
+    #e79e57 100%
+  );
+  color: white;
+}
+
+.btn-download-invoice:hover {
+  opacity: 0.9;
+}
+
+.btn-email-support {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-email-support:hover {
+  background-color: #2980b9;
+}
+
+.btn-delete-order {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-delete-order:not(.disabled):hover {
+  background-color: #c0392b;
+}
+
+.btn-delete-order.disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.btn-icon {
+  margin-right: 8px;
+}
+
+/* Email Modal Styles */
+.email-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.email-modal {
+  background-color: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.email-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.email-modal-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.email-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #7f8c8d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-modal-close:hover {
+  color: #e74c3c;
+}
+
+.email-modal-content {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.readonly-input {
+  background-color: #f5f5f5;
+  color: #7f8c8d;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.email-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-cancel, .btn-send {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel {
+  background-color: #bdc3c7;
+  color: #2c3e50;
+}
+
+.btn-cancel:hover {
+  background-color: #a1a6a9;
+}
+
+.btn-send {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.btn-send:hover {
+  background-color: #27ae60;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .order-header {
+    flex-direction: column;
+  }
+  
+  .order-info {
+    margin: 10px 0;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .progress-tracker {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .progress-step {
+    flex-direction: row;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .step-icon {
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+  
+  .progress-connector {
+    width: 2px;
+    height: 20px;
+    margin-left: 19px;
+    flex-grow: 0;
+  }
+  
+  .order-actions {
+    flex-direction: column;
+  }
+  
+  .email-modal {
+    margin: 10px;
+    max-height: calc(100vh - 20px);
+  }
+  
+  .email-modal-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 24px;
+  }
+  
+  .order-card {
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .product-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .product-price {
+    align-self: flex-end;
+  }
+  
+  .email-modal-header {
+    padding: 15px;
+  }
+  
+  .email-modal-content {
+    padding: 15px;
+  }
+}
+/* Add these styles to your existing MyOrder.css */
+
+/* Email Button */
+.email-button {
+  margin-left: 10px;
+  padding: 4px 8px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.email-button:hover {
+  background-color: #2980b9;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #7f8c8d;
+}
+
+.modal-close:hover {
+  color: #e74c3c;
+}
+
+.email-form {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form-actions button:first-child {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.form-actions button:first-child:hover {
+  background-color: #d0d0d0;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    90deg,
+    #522c72 0%,
+    #962964 25%,
+    #ce2453 50%,
+    #dd5c54 75%,
+    #e79e57 100%
+  );
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* New button style */
+.btn-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: linear-gradient(
+    90deg,
+    #522c72 0%,
+    #962964 25%,
+    #ce2453 50%,
+    #dd5c54 75%,
+    #e79e57 100%
+  );
+  color: white;
+}
+
+.btn-email:hover {
+  opacity: 0.9;
+}
+
+.reason-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+}
+
+.reason-select:focus {
+  outline: none;
+  border-color: #2c5aa0;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.action-button {
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  margin: 5px 0;
+  border: none;
+  cursor: default;
+}
+
+.button-clarified { background: #28a745; }
+.button-receive { background: #17a2b8; }
+.button-refund { background: #ffc107; color: #333; }
+
+/* Spinner inside button */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Spinner element */
+.btn-spinner {
+  border: 2px solid #f3f3f3; /* Light gray */
+  border-top: 2px solid #fff; /* White or primary color */
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+/* Spin animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

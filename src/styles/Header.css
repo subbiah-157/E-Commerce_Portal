@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Inter', sans-serif;
+}
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .categoryNavBar {
+    display: none;
+  }
+}
+
+.ecHeader-loading {
+  padding: 1.5rem;
+  text-align: center;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+/* Navbar Wrapper */
+.ecHeader-wrapper {
+  background-color: #fff; /* Darker purple background */
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #333;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */
+}
+
+.ecHeader-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Logo Section */
+.ecHeader-logoContainer {
+  flex: 0 0 auto;
+}
+
+.ecHeader-logoLink {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.ecHeader-logoImg {
+  height: 50px;
+  object-fit: contain;
+}
+
+.ecHeader-logoText {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+/* Search Section */
+.ecHeader-searchContainer {
+  flex: 1;
+  max-width: 700px;
+  margin: 0 2rem;
+  min-width: 250px;
+}
+
+.ecHeader-searchForm {
+  width: 100%;
+}
+
+.ecHeader-searchInputWrapper {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.ecHeader-searchInputWrapper:focus-within {
+  border-color: #333;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.ecHeader-searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.8rem 1rem;
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+}
+
+.ecHeader-searchInput::placeholder {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.ecHeader-searchButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ecHeader-searchButton:hover {
+  background: rgba(106, 27, 154, 0.1);
+  border-radius: 50%;
+}
+
+.ecHeader-searchIcon {
+  color: #333;
+  font-size: 1.2rem;
+}
+
+/* Navigation Section */
+.ecHeader-navContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 0 0 auto;
+}
+
+.ecHeader-navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.ecHeader-navItem:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: darkblue;
+}
+
+.ecHeader-navIcon {
+  font-size: 1.1rem;
+}
+
+.ecHeader-userProfile {
+  cursor: pointer;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#profile {
+  margin-right: 5px;
+}
+
+.ecHeader-logoutBtn,
+.ecHeader-adminBtn,
+.ecHeader-loginBtn {
+  border: none;
+  font-family: inherit;
+  background: none;
+  color: #333;
+}
+
+/* Category Navigation Bar */
+.categoryNavBar {
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 80px; /* Height of the main header */
+  z-index: 999; /* Below main header but above content */
+}
+
+.categoryNavContainer {
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+}
+
+.categoryNavItem {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoryNavItem:hover {
+  color: #ff9900;
+}
+
+.categoryNavLink {
+  white-space: nowrap;
+}
+
+/* Subcategory Dropdown */
+.subcategoryDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 1100;
+  min-width: 600px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: none; /* hidden by default */
+}
+
+.categoryNavItem:hover .subcategoryDropdown {
+  display: block;
+}
+
+.subcategoryColumns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.subcategoryColumn {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}
+
+.subcategoryTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.subcategoryTitle:hover {
+  color: #ff9900;
+}
+
+.subsubcategoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subsubcategoryLink {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.subsubcategoryLink:hover {
+  color: #ff9900;
+}
+
+/* ==========================
+   RESPONSIVE DESIGN
+   ========================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .ecHeader-content {
+    flex-wrap: wrap;
+  }
+
+  .ecHeader-searchContainer {
+    order: 3;
+    margin: 1rem 0 0;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .categoryNavContainer {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .categoryNavContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  .subcategoryDropdown {
+    position: fixed;
+    top: 140px;
+    left: 0;
+    right: 0;
+    min-width: unset;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
+  }
+
+  .subcategoryColumns {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .ecHeader-navLabel {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .ecHeader-wrapper {
+    padding: 0.8rem 1rem;
+  }
+
+  .ecHeader-logoImg {
+    height: 40px;
+  }
+
+  .ecHeader-logoText {
+    font-size: 1.5rem;
+  }
+
+  .ecHeader-searchInput {
+    font-size: 0.9rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .ecHeader-navLabel {
+    display: none;
+  }
+
+  .ecHeader-navItem {
+    padding: 0.6rem;
+  }
+
+  .ecHeader-userProfile .ecHeader-navLabel {
+    display: none;
+  }
+
+  .categoryNavBar {
+    top: 70px; /* Adjusted for smaller header */
+  }
+
+  .categoryNavContainer {
+    justify-content: flex-start;
+    padding: 0 0.5rem;
+  }
+
+  .categoryNavItem {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .subcategoryDropdown {
+    position: fixed;
+    top: 125px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 0;
+    padding: 1rem;
+    background: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .subcategoryTitle {
+    font-size: 0.95rem;
+  }
+
+  .subsubcategoryLink {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra Small (Phones) */
+@media (max-width: 480px) {
+  .ecHeader-logoText {
+    font-size: 1.3rem;
+  }
+
+  .ecHeader-searchInput::placeholder {
+    font-size: 0.85rem;
+  }
+
+  .ecHeader-searchContainer {
+    margin: 0.8rem 0 0;
+  }
+
+  .ecHeader-navContainer {
+    gap: 0.5rem;
+  }
+
+  .categoryNavBar {
+    top: 65px; /* Further adjusted for very small screens */
+  }
+}
+

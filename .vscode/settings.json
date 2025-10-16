@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/fe319737-346d-4fbd-8249-bfc2ccc215e7/resourceGroups/AI-Ecom/providers/Microsoft.Web/sites/indusmart",
+    "appService.deploySubpath": "."
+}
